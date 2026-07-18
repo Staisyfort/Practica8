@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  servidor1:
+    build: .
+    container_name: ubuntu_srv1
+    ports:
+      - "2201:22"
+    networks:
+      ansible_net:
+        ipv4_address: 172.20.0.11
+
+  servidor2:
+    build: .
+    container_name: ubuntu_srv2
+    ports:
+      - "2202:22"
+    networks:
+      ansible_net:
+        ipv4_address: 172.20.0.12
+
+  servidor3:
+    build: .
+    container_name: ubuntu_srv3
+    ports:
+      - "2203:22"
+    networks:
+      ansible_net:
+        ipv4_address: 172.20.0.13
+
+  servidor4:
+    build: .
+    container_name: ubuntu_srv4
+    ports:
+      - "2204:22"
+    networks:
+      ansible_net:
+        ipv4_address: 172.20.0.14
+
+  servidor5:
+    build: .
+    container_name: ubuntu_srv5
+    ports:
+      - "2205:22"
+    networks:
+      ansible_net:
+        ipv4_address: 172.20.0.15
+
+networks:
+  ansible_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
