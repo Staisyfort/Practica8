@@ -15,6 +15,4 @@ RUN echo 'ansible:ansible' | chpasswd
 
 RUN echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-EXPOSE 22
-
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/bin/bash", "-c", "/usr/sbin/sshd && python3 -m http.server ${PORT:-10000}"]
